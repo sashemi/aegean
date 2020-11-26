@@ -273,6 +273,16 @@ Error message and password prompt
 
 <li>$:/favicon.ico</li>
 
+<li>$:/GitHub/Branch</li>
+
+<li>$:/GitHub/Filename</li>
+
+<li>$:/GitHub/Path</li>
+
+<li>$:/GitHub/Repo</li>
+
+<li>$:/GitHub/Username</li>
+
 <li>$:/Import</li>
 
 <li>$:/isEncrypted</li>
@@ -292,6 +302,14 @@ Error message and password prompt
 <li>$:/SiteSubtitle</li>
 
 <li>$:/SiteTitle</li>
+
+<li>$:/state/tab-1749438307</li>
+
+<li>$:/state/tab-2065006209</li>
+
+<li>$:/state/tab/moresidebar-1850697562</li>
+
+<li>$:/state/tab/sidebar--595412856</li>
 
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
@@ -416,7 +434,7 @@ Error message and password prompt
 <div _canonical_uri="https://i.imgur.com/OMHFsfl.jpg" attribution="Matt DeMino" attributionurl="https://www.artstation.com/mattdemino" caption-tab="Intro" created="20191219140539924" creator="The Islander" modified="20200328154048260" modifier="The Islander" tags="Media" title="$:/.isle/images/Isik's cover page" type="image/jpeg">
 <pre></pre>
 </div>
-<div _canonical_uri="https://i.imgur.com/0MdQAaw.jpg" caption-tab="ðŸ’° Inventory" created="20191219141216117" creator="The Islander" modified="20200328154034060" modifier="The Islander" tags="Media" title="$:/.isle/images/Isik's inventory" type="image/jpeg">
+<div _canonical_uri="https://i.imgur.com/0MdQAaw.jpg" caption-tab="í ½í²° Inventory" created="20191219141216117" creator="The Islander" modified="20200328154034060" modifier="The Islander" tags="Media" title="$:/.isle/images/Isik's inventory" type="image/jpeg">
 <pre></pre>
 </div>
 <div _canonical_uri="https://i.imgur.com/dO4rlPK.jpg" caption-tab="Sheet Page 1" created="20191219140907173" creator="The Islander" modified="20200328153844116" modifier="The Islander" tags="Media" title="$:/.isle/images/Isik's sheet page 1" type="image/jpeg">
@@ -526,18 +544,18 @@ Error message and password prompt
 \end
 </pre>
 </div>
-<div created="20191225193514468" creator="The Islander" modified="20200627210402255" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/button-roll-dice">
+<div created="20191225193514468" creator="The Islander" modified="20201126020600571" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/button-roll-dice">
 <pre>\define button-roll-dice(name,notation)
-&lt;$button set=&quot;Dice-Roller!!text&quot; setTo=&quot;&lt;iframe id='dice-roller' src='https://sriracha-sauce.github.io/dice/dice/index.html?roll&amp;notation=$notation$' width='100%' height='300' style='border: none;'&gt;&lt;/iframe&gt;&quot;&gt;$name$
+&lt;$button set=&quot;Dice-Roller!!text&quot; setTo=&quot;&lt;iframe id='dice-roller' src='https://dice.bushido.black/dice/index.html?roll&amp;notation=$notation$' width='100%' height='300' style='border: none;'&gt;&lt;/iframe&gt;&quot;&gt;$name$
 &lt;$action-navigate $to=&quot;Dice-Roller&quot; $scroll=&quot;yes&quot;/&gt;
 &lt;/$button&gt;
 \end</pre>
 </div>
-<div created="20200214030651944" creator="The Islander" modified="20200627205457318" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/chart">
+<div created="20200214030651944" creator="The Islander" modified="20201126020732483" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/chart">
 <pre>\define chart(campaign,type,chart,height:602,depth:0)
-&lt;iframe src='https://sriracha-sauce.github.io/vis/?campaign=$campaign$&amp;$type$=$chart$&amp;d=$depth$&amp;embed' width='100%' height='$height$' style='border: none;'&gt;&lt;/iframe&gt;
+&lt;iframe src='https://vis.bushido.black/?campaign=$campaign$&amp;$type$=$chart$&amp;d=$depth$&amp;embed' width='100%' height='$height$' style='border: none;'&gt;&lt;/iframe&gt;
 
-[[See in full size|https://sriracha-sauce.github.io/vis/?campaign=$campaign$&amp;$type$=$chart$]]
+[[See in full size|https://vis.bushido.black/?campaign=$campaign$&amp;$type$=$chart$]]
 \end</pre>
 </div>
 <div created="20200103232054198" creator="The Islander" modified="20200627210001783" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/float-right-symbol">
@@ -545,11 +563,11 @@ Error message and password prompt
 &lt;img style=&quot;float:right;padding:2px;padding-top:0px;filter:invert(0.3) sepia(1);&quot; width=&quot;32&quot; height=&quot;32&quot; src=&quot;https://sriracha-sauce.github.io/maps/images/symbols/$symbol$.svg&quot; alt=&quot;&quot;&gt;
 \end</pre>
 </div>
-<div created="20200126060613811" creator="The Islander" modified="20200627205411711" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/map">
+<div created="20200126060613811" creator="The Islander" modified="20201126015758307" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/map">
 <pre>\define map(campaign map height:450 chapter region show)
-&lt;iframe src='https://sriracha-sauce.github.io/maps/?campaign=$campaign$&amp;map=$map$&amp;chapter=$chapter$&amp;region=$region$&amp;show=$show$' width='100%' height='$height$' style='border: none;'&gt;&lt;/iframe&gt;
+&lt;iframe src='https://maps.bushido.black/?campaign=$campaign$&amp;map=$map$&amp;chapter=$chapter$&amp;region=$region$&amp;show=$show$' width='100%' height='$height$' style='border: none;'&gt;&lt;/iframe&gt;
 
-[[See this map in full size|https://sriracha-sauce.github.io/maps/?campaign=$campaign$&amp;map=$map$&amp;chapter=$chapter$&amp;region=$region$&amp;show=$show$]]
+[[See this map in full size|https://maps.bushido.black/?campaign=$campaign$&amp;map=$map$&amp;chapter=$chapter$&amp;region=$region$&amp;show=$show$]]
 \end</pre>
 </div>
 <div created="20191226050635108" creator="The Islander" modified="20191226063440318" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/tabs-caption">
@@ -932,7 +950,7 @@ A list of notable NPCs from $place$.
 &lt;/div&gt;
 </pre>
 </div>
-<div caption-tab="ðŸŽ² Rolls" created="20191226053805011" creator="The Islander" modified="20200328154219812" modifier="The Islander" tags="" title="$:/.isle/tiddlers/Isik's rolls">
+<div caption-tab="í ¼í¾² Rolls" created="20191226053805011" creator="The Islander" modified="20200328154219812" modifier="The Islander" tags="" title="$:/.isle/tiddlers/Isik's rolls">
 <pre>!! Attribute Checks
 &lt;&lt;button-roll-dice STR 1d20+1&gt;&gt;  
 &lt;&lt;button-roll-dice DEX 1d20+3&gt;&gt;  
@@ -10540,6 +10558,21 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div _canonical_uri="https://dokgqdge4v5nagul.github.io/maps/favicon.ico" created="20200128060328759" creator="The Islander" modified="20200128060508254" modifier="The Islander" tags="" title="$:/favicon.ico" type="image/x-icon">
 <pre></pre>
 </div>
+<div created="20201126021120987" creator="The Islander" modified="20201126021121387" modifier="The Islander" title="$:/GitHub/Branch">
+<pre>main</pre>
+</div>
+<div created="20201126020913115" creator="The Islander" modified="20201126020914699" modifier="The Islander" title="$:/GitHub/Filename">
+<pre>index.html</pre>
+</div>
+<div created="20201126020910683" creator="The Islander" modified="20201126020910683" modifier="The Islander" title="$:/GitHub/Path">
+<pre>/</pre>
+</div>
+<div created="20201126020842497" creator="The Islander" modified="20201126021222187" modifier="The Islander" title="$:/GitHub/Repo">
+<pre>sashemi/aegean</pre>
+</div>
+<div created="20201126020753684" creator="The Islander" modified="20201126020754706" modifier="The Islander" title="$:/GitHub/Username">
+<pre>sashemi</pre>
+</div>
 <div status="complete" title="$:/Import">
 <pre>The following tiddlers were imported:
 
@@ -10959,7 +10992,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 
 /* Enable [[|link for inappropriate title]] */
 .tc-tiddlylink:empty:after {
-  content:&quot;ðŸ¡•&quot;;
+  content:&quot;í ¾í±•&quot;;
   font-style:normal;
   margin-left:-2px;
 }
@@ -10980,13 +11013,25 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20170612192911097" modified="20191219050514788" title="$:/SiteTitle">
 <pre>The Aegean Mists</pre>
 </div>
+<div created="20201126020745795" creator="The Islander" modified="20201126020745795" modifier="The Islander" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Saving</pre>
+</div>
+<div created="20201126020747435" creator="The Islander" modified="20201126020747435" modifier="The Islander" title="$:/state/tab-2065006209">
+<pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
+</div>
+<div created="20201126015723258" creator="The Islander" modified="20201126015723258" modifier="The Islander" title="$:/state/tab/moresidebar-1850697562">
+<pre>$:/core/ui/MoreSideBar/System</pre>
+</div>
+<div created="20201126015722235" creator="The Islander" modified="20201126015722235" modifier="The Islander" title="$:/state/tab/sidebar--595412856">
+<pre>$:/core/ui/SideBar/More</pre>
+</div>
 <div title="$:/status/RequireReloadDueToPluginChange">
 <pre>no</pre>
 </div>
 <div created="20160407102858708" creator="t" modified="20191219050556788" modifier="The Islande" title="$:/status/UserName">
 <pre>The Islander</pre>
 </div>
-<div list="Sessions Washington-State Cultures" title="$:/StoryList">
+<div created="20201126015732179" creator="The Islander" list="$:/.isle/macros/chart $:/.isle/macros/button-roll-dice $:/.isle/macros/map Sessions Washington-State Cultures" modified="20201126021211900" modifier="The Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -11005,19 +11050,19 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;http://aegeanmists.tiddlyspot.com/&quot;
+            &quot;text&quot;: &quot;https://aegeanmists.bushido.black/&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
-            &quot;text&quot;: &quot;aegeanmists.tiddlyspot.com&quot;
+            &quot;text&quot;: &quot;aegeanmists.bushido.black&quot;
         },
         &quot;$:/info/url/hostname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/hostname&quot;,
-            &quot;text&quot;: &quot;aegeanmists.tiddlyspot.com&quot;
+            &quot;text&quot;: &quot;aegeanmists.bushido.black&quot;
         },
         &quot;$:/info/url/protocol&quot;: {
             &quot;title&quot;: &quot;$:/info/url/protocol&quot;,
-            &quot;text&quot;: &quot;http:&quot;
+            &quot;text&quot;: &quot;https:&quot;
         },
         &quot;$:/info/url/port&quot;: {
             &quot;title&quot;: &quot;$:/info/url/port&quot;,
@@ -11033,7 +11078,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
         },
         &quot;$:/info/url/origin&quot;: {
             &quot;title&quot;: &quot;$:/info/url/origin&quot;,
-            &quot;text&quot;: &quot;http://aegeanmists.tiddlyspot.com&quot;
+            &quot;text&quot;: &quot;https://aegeanmists.bushido.black&quot;
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
@@ -11203,7 +11248,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 * Small or portable enchanted items (very rare) would be especially valuable
 * Ingredients for magic rituals would always carry value with casters but might have next to no value with anyone else (because of no use or because they might not recognize how valuable they would be to casters)</pre>
 </div>
-<div caption="ðŸŽ² Dice Roller" created="20191225153612392" creator="The Islander" modified="20200627210434543" modifier="The Islander" tags="[[Table of contents]]" title="Dice-Roller">
+<div caption="í ¼í¾² Dice Roller" created="20191225153612392" creator="The Islander" modified="20200627210434543" modifier="The Islander" tags="[[Table of contents]]" title="Dice-Roller">
 <pre>&lt;iframe id='dice-roller' src='https://sriracha-sauce.github.io/dice/dice/index.html?roll&amp;notation=1d20+3' width='100%' height='300' style='border: none;'&gt;&lt;/iframe&gt;</pre>
 </div>
 <div created="20191219144316168" creator="The Islander" modified="20200328154203620" modifier="The Islander" tags="Player-characters" title="Isik">
