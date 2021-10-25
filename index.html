@@ -52,7 +52,7 @@ OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." />
 
 <!--~~ Raw markup ~~-->
 
-<link href="http://fonts.googleapis.com/css?family=Magra:wght@700&display=swap" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Magra:wght@700&display=swap" rel="stylesheet" type="text/css">
 
 </head>
 <body class="tc-body">
@@ -311,6 +311,14 @@ Error message and password prompt
 
 <li>$:/state/tab/sidebar--595412856</li>
 
+<li>$:/state/toc/Table of contents-Player-characters-1395397534</li>
+
+<li>$:/state/toc/Table of contents-Quests-1395397534</li>
+
+<li>$:/state/toc/Table of contents-Reference-1395397534</li>
+
+<li>$:/state/toc/Table of contents/Quests-Plague-of-the-Flayed-One-1395397534</li>
+
 <li>$:/status/RequireReloadDueToPluginChange</li>
 
 <li>$:/status/UserName</li>
@@ -500,67 +508,83 @@ Error message and password prompt
 <div _canonical_uri="https://i.imgur.com/NPKKY5J.jpg" attribution="Joseph Meehan" attributionurl="https://www.artstation.com/meehanjo/" created="20200328151546907" creator="The Islander" modified="20200328151707258" modifier="The Islander" tags="Media" title="$:/.isle/images/West Wind's Ascension" type="image/jpeg">
 <pre></pre>
 </div>
-<div created="20200328023608793" creator="The Islander" modified="20200429073148043" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/attribution">
-<pre>\define img(tiddler)
-&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  [img width=&quot;100%&quot; [$tiddler$]]
-&lt;/div&gt;
-\end
-
-\define imgfade(tiddler)
-&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  [img width=&quot;100%&quot; [$tiddler$]]
-&lt;/div&gt;
-\end
-
-\define imgwattribution(tiddler)
-&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  [img width=&quot;100%&quot; [$tiddler$]]
-&lt;/div&gt;
+<div created="20200328023608793" creator="The Islander" modified="20211025014406321" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/attribution">
+<pre>\define imgwattribution(tiddler:&quot;&quot;,border:&quot;1&quot;,fade:&quot;1&quot;)
+&lt;$set name=&quot;unicode-pattern&quot; value=&quot;[&amp;\#\d+;]&quot;&gt;
+&lt;$set name=&quot;slug-pattern&quot; value=&quot;[^A-Za-z0-9\-\s]&quot;&gt;
+&lt;$set select=&quot;0&quot; name=&quot;tiddler-sub2&quot; filter=&quot;[[$(currentTiddler)$]get[subtitle]search-replace:gi:regexp&lt;unicode-pattern&gt;,[]search-replace:gi:regexp&lt;slug-pattern&gt;,[]trim[]addprefix[$:/.isle/images/]addsuffix[/2]is[tiddler]]&quot; emptyValue=&quot;&quot;&gt;
+&lt;$set select=&quot;0&quot; name=&quot;tiddler-unslugify2&quot; filter=&quot;[[$(currentTiddler)$]search-replace:gi[-],[ ]addprefix[$:/.isle/images/]addsuffix[/2]is[tiddler]]&quot; emptyValue=&lt;&lt;tiddler-sub2&gt;&gt; &gt;
+&lt;$set select=&quot;0&quot; name=imgtiddler2 filter=&quot; $tiddler$&quot; value=&quot;$:/.isle/images/$tiddler$/2&quot; emptyValue=&lt;&lt;tiddler-unslugify2&gt;&gt; &gt;
+&lt;$set select=&quot;0&quot; name=&quot;tiddler-sub&quot; filter=&quot;[[$(currentTiddler)$]get[subtitle]search-replace:gi:regexp&lt;unicode-pattern&gt;,[]search-replace:gi:regexp&lt;slug-pattern&gt;,[]trim[]addprefix[$:/.isle/images/]is[tiddler]]&quot; emptyValue=&quot;&quot;&gt;
+&lt;$set select=&quot;0&quot; name=&quot;tiddler-unslugify&quot; filter=&quot;[[$(currentTiddler)$]search-replace:gi[-],[ ]addprefix[$:/.isle/images/]is[tiddler]]&quot; emptyValue=&lt;&lt;tiddler-sub&gt;&gt; &gt;
+&lt;$set select=&quot;0&quot; name=imgtiddler filter=&quot; $tiddler$&quot; value=&quot;$:/.isle/images/$tiddler$&quot; emptyValue=&lt;&lt;tiddler-unslugify&gt;&gt; &gt;
+&lt;$set name=&quot;style-base&quot; value=&quot;width:100%; padding:0; padding-bottom:-5px;&quot;&gt;
+&lt;$set select=0 name=&quot;style-border&quot; filter=&quot;[&lt;__border__&gt;compare:integer:eq[1]then[ border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0;]]&quot;&gt;
+&lt;$set select=0 name=&quot;style-fade&quot; filter=&quot;[&lt;__fade__&gt;compare:integer:eq[1]then[ -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));]]&quot;&gt;
+&lt;$set name=&quot;style-final&quot; filter=&quot;[&lt;style-base&gt;addsuffix&lt;style-border&gt;addsuffix&lt;style-fade&gt;]&quot; select=0&gt;
+&lt;$reveal text={{{ [&lt;imgtiddler&gt;is[tiddler]then[true]] }}} type=&quot;match&quot; default=&quot;true&quot;&gt;
+  &lt;div style=&lt;&lt;style-final&gt;&gt; &gt;
+    &lt;$image width=&quot;100%&quot; source=&lt;&lt;imgtiddler&gt;&gt; /&gt;
+  &lt;/div&gt;
+&lt;/$reveal&gt;
+&lt;/$set&gt;
+&lt;/$set&gt;&lt;!-- style-fade --&gt;
+&lt;/$set&gt;&lt;!-- style-border --&gt;
+&lt;/$set&gt;&lt;!-- style-base --&gt;
+&lt;$list filter=&quot;[&lt;imgtiddler&gt;]&quot;&gt;
+&lt;$reveal type=&quot;nomatch&quot; state=&quot;!!attribution&quot; text=&quot;&quot; default=&quot;&quot;&gt;
 &lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
-  Artwork by {{$tiddler$!!attribution}}
+  Artwork by 
+  &lt;$reveal type=&quot;nomatch&quot; state=&quot;!!attributionurl&quot;  text=&quot;&quot; default=&quot;&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href={{!!attributionurl}} target=&quot;_blank&quot;&gt;{{!!attribution}}&lt;/a&gt;&lt;$list filter=&quot;[&lt;imgtiddler2&gt;]&quot;&gt;&lt;$reveal type=&quot;nomatch&quot; state=&quot;!!attributionurl&quot;  text=&quot;&quot; default=&quot;&quot;&gt;, &lt;a class=&quot;tc-tiddlylink-external&quot; href={{!!attributionurl}} target=&quot;_blank&quot;&gt;{{!!attribution}}&lt;/a&gt;&lt;/$reveal&gt;&lt;/$list&gt;&lt;/$reveal&gt;
+  &lt;$reveal type=&quot;match&quot; state=&quot;!!attributionurl&quot; text=&quot;&quot; default=&quot;&quot;&gt;{{!!attribution}}&lt;$list filter=&quot;[&lt;imgtiddler2&gt;]&quot;&gt;&lt;$reveal type=&quot;match&quot; state=&quot;!!attributionurl&quot;  text=&quot;&quot; default=&quot;&quot;&gt;, {{!!attribution}}&lt;/$reveal&gt;&lt;/$list&gt;&lt;/$reveal&gt;
 &lt;/p&gt;
-\end
-
-\define imgwattributionurl(tiddler)
-&lt;div style=&quot;width:100%; padding:0; padding-bottom:-5px; border-width: 4px 0 0 0; border-style: solid; border-image: linear-gradient( to right, rgba(119, 94, 71, 1), rgba(0, 0, 0, 0)) 3 0 0 0; -webkit-mask-image: -webkit-gradient(linear, left 50%, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); mask-image: linear-gradient(linear, left 50%, left bottom, rgba(0,0,0,1), rgba(0,0,0,0));&quot;&gt;
-  [img width=&quot;100%&quot; [$tiddler$]]
-&lt;/div&gt;
-&lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
-  Artwork by &lt;a href={{$tiddler$!!attributionurl}} target=&quot;_blank&quot;&gt;{{$tiddler$!!attribution}}&lt;/a&gt;
-&lt;/p&gt;
+&lt;/$reveal&gt;
+&lt;/$list&gt;
+&lt;/$set&gt;&lt;!-- imgtiddler --&gt;
+&lt;/$set&gt;&lt;!-- tiddler-unslugify --&gt;
+&lt;/$set&gt;&lt;!-- tiddler-sub --&gt;
+&lt;/$set&gt;&lt;!-- imgtiddler2 --&gt;
+&lt;/$set&gt;&lt;!-- tiddler-unslugify2 --&gt;
+&lt;/$set&gt;&lt;!-- tiddler-sub2 --&gt;
+&lt;/$set&gt;&lt;!-- slug-pattern --&gt;
+&lt;/$set&gt;&lt;!-- unicode-pattern --&gt;
 \end
 
 \define attribution(tiddler,type:&quot;Artwork&quot;)
 &lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
-  $type$ by by {{$tiddler$!!attribution}}
+  $type$ by
+  &lt;$reveal type=&quot;nomatch&quot; state=&quot;$:/.isle/images/$tiddler$!!attributionurl&quot; text=&quot;&quot; default=&quot;&quot;&gt;&lt;a class=&quot;tc-tiddlylink-external&quot; href={{$:/.isle/images/$tiddler$!!attributionurl}} target=&quot;_blank&quot;&gt;{{$:/.isle/images/$tiddler$!!attribution}}&lt;/a&gt;&lt;/$reveal&gt;
+  &lt;$reveal type=&quot;match&quot; state=&quot;$:/.isle/images/$tiddler$!!attributionurl&quot; text=&quot;&quot; default=&quot;&quot;&gt;{{$:/.isle/images/$tiddler$!!attribution}}&lt;/$reveal&gt;
 &lt;/p&gt;
 \end
 
-\define attributionurl(tiddler,type:&quot;Artwork&quot;)
-&lt;p style=&quot;font-size: 0.8em; font-variant: small-caps; opacity: 0.8;&quot;&gt;
-  $type$ by &lt;a href={{$tiddler$!!attributionurl}} target=&quot;_blank&quot;&gt;{{$tiddler$!!attribution}}&lt;/a&gt;
-&lt;/p&gt;
+\define reference()
+
+@@.h
+&lt;$reveal type=&quot;nomatch&quot; state=&quot;!!source&quot; text=&quot;&quot;&gt;&lt;li&gt;''//Reference&lt;$set name=&quot;ref-semicolon&quot; filter=&quot;[all[current]has[source]regexp:source[(?i)\;]]&quot; emptyValue=&quot;&quot;&gt;&lt;$reveal text=&lt;&lt;ref-semicolon&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;s&lt;/$reveal&gt;&lt;/$set&gt;.//'' {{!!source}}.&lt;/li&gt;&lt;/$reveal&gt;
+@@
+
+&lt;p/&gt;
 \end
 </pre>
 </div>
-<div created="20191225193514468" creator="The Islander" modified="20201126020600571" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/button-roll-dice">
+<div created="20191225193514468" creator="The Islander" modified="20211025013941787" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/button-roll-dice">
 <pre>\define button-roll-dice(name,notation)
-&lt;$button set=&quot;Dice-Roller!!text&quot; setTo=&quot;&lt;iframe id='dice-roller' src='https://dice.bushido.black/dice/index.html?roll&amp;notation=$notation$' width='100%' height='300' style='border: none;'&gt;&lt;/iframe&gt;&quot;&gt;$name$
+&lt;$button set=&quot;Dice-Roller!!text&quot; setTo=&quot;&lt;iframe id='dice-roller' src='https://dice.drider.org/?roll&amp;notation=$notation$' width='100%' height='300' style='border: none;'&gt;&lt;/iframe&gt;&quot;&gt;$name$
 &lt;$action-navigate $to=&quot;Dice-Roller&quot; $scroll=&quot;yes&quot;/&gt;
 &lt;/$button&gt;
 \end</pre>
 </div>
-<div created="20200214030651944" creator="The Islander" modified="20201126020732483" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/chart">
+<div created="20200214030651944" creator="The Islander" modified="20211025013851762" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/chart">
 <pre>\define chart(campaign,type,chart,height:602,depth:0)
-&lt;iframe src='https://vis.bushido.black/?campaign=$campaign$&amp;$type$=$chart$&amp;d=$depth$&amp;embed' width='100%' height='$height$' style='border: none;'&gt;&lt;/iframe&gt;
+&lt;iframe src='https://vector.drider.org/?campaign=$campaign$&amp;$type$=$chart$&amp;d=$depth$&amp;embed' width='100%' height='$height$' style='border: none;'&gt;&lt;/iframe&gt;
 
-[[See in full size|https://vis.bushido.black/?campaign=$campaign$&amp;$type$=$chart$]]
+[[See in full size|https://vector.drider.org/?campaign=$campaign$&amp;$type$=$chart$]]
 \end</pre>
 </div>
-<div created="20200103232054198" creator="The Islander" modified="20200627210001783" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/float-right-symbol">
+<div created="20200103232054198" creator="The Islander" modified="20211025013642986" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/float-right-symbol">
 <pre>\define float-right-symbol(symbol)
-&lt;img style=&quot;float:right;padding:2px;padding-top:0px;filter:invert(0.3) sepia(1);&quot; width=&quot;32&quot; height=&quot;32&quot; src=&quot;https://sriracha-sauce.github.io/maps/images/symbols/$symbol$.svg&quot; alt=&quot;&quot;&gt;
+&lt;img style=&quot;float:right;padding:2px;padding-top:0px;filter:invert(0.3) sepia(1);&quot; width=&quot;32&quot; height=&quot;32&quot; src=&quot;https://maps.bushido.black/images/symbols/$symbol$.svg&quot; alt=&quot;&quot;&gt;
 \end</pre>
 </div>
 <div created="20200126060613811" creator="The Islander" modified="20201126015758307" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/map">
@@ -570,7 +594,7 @@ Error message and password prompt
 [[See this map in full size|https://maps.bushido.black/?campaign=$campaign$&amp;map=$map$&amp;chapter=$chapter$&amp;region=$region$&amp;show=$show$]]
 \end</pre>
 </div>
-<div created="20191226050635108" creator="The Islander" modified="20191226063440318" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/tabs-caption">
+<div created="20191226050635108" creator="The Islander" modified="20211025013748506" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/tabs-caption">
 <pre>\define tabs-caption(tabsList,default,state:&quot;$:/state/tab&quot;,class,template,buttonTemplate,retain)
 &lt;div class=&quot;tc-tab-set $class$&quot;&gt;
 &lt;div class=&quot;tc-tab-buttons $class$&quot;&gt;
@@ -606,7 +630,7 @@ Error message and password prompt
 \end
 </pre>
 </div>
-<div created="20200328181451163" creator="The Islander" modified="20200627210048423" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/tocwsynopsis">
+<div created="20200328181451163" creator="The Islander" modified="20211025013717018" modifier="The Islander" tags="$:/tags/Macro" title="$:/.isle/macros/tocwsynopsis">
 <pre>\define tocwsynopsis(articles:&quot;Articles&quot;)
 &lt;$set name=&quot;header&quot; filter=&quot;&quot;&quot;[all[current]tagging[]sort{!!toc-sort}]&quot;&quot;&quot; emptyValue=&quot;&quot;&gt;
   &lt;$reveal text=&lt;&lt;header&gt;&gt; type=&quot;nomatch&quot; default=&quot;&quot;&gt;
@@ -666,10 +690,10 @@ A list of notable NPCs from $place$.
 \end
 </pre>
 </div>
-<div created="20200407194517515" creator="The Islander" modified="20200407194557786" modifier="The Islander" tags="$:/tags/RawMarkup" title="$:/.isle/styles/fonts">
-<pre>&lt;link href=&quot;http://fonts.googleapis.com/css?family=Magra:wght@700&amp;display=swap&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</pre>
+<div created="20200407194517515" creator="The Islander" modified="20211025014534345" modifier="The Islander" tags="$:/tags/RawMarkup" title="$:/.isle/styles/fonts">
+<pre>&lt;link href=&quot;https://fonts.googleapis.com/css?family=Magra:wght@700&amp;display=swap&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</pre>
 </div>
-<div created="20200326200934827" creator="The Islander" modified="20200506013200450" modifier="The Islander" tags="$:/tags/Stylesheet" title="$:/.isle/styles/main" type="text/css">
+<div created="20200326200934827" creator="The Islander" modified="20211025013606506" modifier="The Islander" tags="$:/tags/Stylesheet" title="$:/.isle/styles/main" type="text/css">
 <pre>.tc-tiddler-body h1,
 .tc-tiddler-body h2,
 .tc-tiddler-body h3,
@@ -727,7 +751,8 @@ A list of notable NPCs from $place$.
 }
 .h dd, dd.h {
     margin-left: 0px;
-    padding-left: 20px;
+    padding-left: 40px;
+    text-indent: -20px;
 }
 
 .timeline:after {
@@ -789,12 +814,12 @@ A list of notable NPCs from $place$.
 .coinGp {
     background-image:
         linear-gradient(rgba(255,255,255,0.1), rgba(255,255,255,0.1)),
-        url(https://sashemi.github.io/vis/images/coins/coin-gold.svg);
+        url(https://vector.drider.org/images/coins/coin-gold.svg);
 }
 .coinSp {
     background-image:
         linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0.2)),
-        url(https://sashemi.github.io/vis/images/coins/coin-silver.svg)
+        url(https://vector.drider.org/images/coins/coin-silver.svg)
 }
 
 
@@ -10555,7 +10580,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20160129095057570" creator="twMat" modified="20200327151511447" modifier="The Islander" title="$:/DefaultTiddlers">
 <pre>[list[$:/.isle/system/StoryList]]</pre>
 </div>
-<div _canonical_uri="https://dokgqdge4v5nagul.github.io/maps/favicon.ico" created="20200128060328759" creator="The Islander" modified="20200128060508254" modifier="The Islander" tags="" title="$:/favicon.ico" type="image/x-icon">
+<div _canonical_uri="https://maps.bushido.black/favicon.ico" created="20200128060328759" creator="The Islander" modified="20211025013343594" modifier="The Islander" tags="" title="$:/favicon.ico" type="image/x-icon">
 <pre></pre>
 </div>
 <div created="20201126021120987" creator="The Islander" modified="20201126021121387" modifier="The Islander" title="$:/GitHub/Branch">
@@ -10899,25 +10924,37 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
 <div created="20170612192911097" modified="20191219050514788" title="$:/SiteTitle">
 <pre>The Aegean Mists</pre>
 </div>
-<div created="20210522043400183" creator="The Islander" modified="20210522044141856" modifier="The Islander" title="$:/state/tab-1749438307">
-<pre>$:/core/ui/ControlPanel/Plugins</pre>
+<div created="20211025013215002" creator="The Islander" modified="20211025013215002" modifier="The Islander" title="$:/state/tab-1749438307">
+<pre>$:/core/ui/ControlPanel/Saving</pre>
 </div>
-<div created="20210522043517671" creator="The Islander" modified="20210522043517671" modifier="The Islander" title="$:/state/tab-2065006209">
+<div created="20211025013219266" creator="The Islander" modified="20211025013219266" modifier="The Islander" title="$:/state/tab-2065006209">
 <pre>$:/core/ui/ControlPanel/Saving/GitHub</pre>
 </div>
-<div created="20210522043929990" creator="The Islander" modified="20210522043929990" modifier="The Islander" title="$:/state/tab/moresidebar-1850697562">
+<div created="20211025012928034" creator="The Islander" modified="20211025012928034" modifier="The Islander" title="$:/state/tab/moresidebar-1850697562">
 <pre>$:/core/ui/MoreSideBar/System</pre>
 </div>
-<div created="20210522043928038" creator="The Islander" modified="20210522043928038" modifier="The Islander" title="$:/state/tab/sidebar--595412856">
+<div created="20211025012924683" creator="The Islander" modified="20211025014523777" modifier="The Islander" title="$:/state/tab/sidebar--595412856">
 <pre>$:/core/ui/SideBar/More</pre>
 </div>
+<div created="20211025014425521" creator="The Islander" modified="20211025014425521" modifier="The Islander" title="$:/state/toc/Table of contents-Player-characters-1395397534">
+<pre>open</pre>
+</div>
+<div created="20211025014057913" creator="The Islander" modified="20211025014424513" modifier="The Islander" title="$:/state/toc/Table of contents-Quests-1395397534">
+<pre>close</pre>
+</div>
+<div created="20211025014044585" creator="The Islander" modified="20211025014522801" modifier="The Islander" title="$:/state/toc/Table of contents-Reference-1395397534">
+<pre>close</pre>
+</div>
+<div created="20211025014103433" creator="The Islander" modified="20211025014103433" modifier="The Islander" title="$:/state/toc/Table of contents/Quests-Plague-of-the-Flayed-One-1395397534">
+<pre>open</pre>
+</div>
 <div title="$:/status/RequireReloadDueToPluginChange">
-<pre>yes</pre>
+<pre>no</pre>
 </div>
 <div created="20160407102858708" creator="t" modified="20191219050556788" modifier="The Islande" title="$:/status/UserName">
 <pre>The Islander</pre>
 </div>
-<div created="20210522043355432" creator="The Islander" list="$:/Import Sessions Washington-State Cultures" modified="20210522044134639" modifier="The Islander" title="$:/StoryList">
+<div created="20211025012936443" creator="The Islander" list="Player-characters Plague-of-the-Flayed-One $:/.isle/macros/attribution Sessions Washington-State Cultures" modified="20211025014528345" modifier="The Islander" title="$:/StoryList">
 <pre></pre>
 </div>
 <div created="20191219143401841" creator="The Islander" list="$:/core/ui/Buttons/more-tiddler-actions $:/core/ui/Buttons/info $:/core/ui/Buttons/new-here $:/core/ui/Buttons/new-journal-here $:/core/ui/Buttons/clone $:/core/ui/Buttons/export-tiddler $:/core/ui/Buttons/edit $:/core/ui/Buttons/delete $:/core/ui/Buttons/permalink $:/core/ui/Buttons/permaview $:/core/ui/Buttons/open-window $:/core/ui/Buttons/close-others $:/core/ui/Buttons/fold-others $:/core/ui/Buttons/fold $:/core/ui/Buttons/close $:/core/ui/Buttons/fold-bar" modified="20191219143649160" modifier="The Islander" title="$:/tags/ViewToolbar">
@@ -10936,15 +10973,15 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
         },
         &quot;$:/info/url/full&quot;: {
             &quot;title&quot;: &quot;$:/info/url/full&quot;,
-            &quot;text&quot;: &quot;https://aegeanmists.bushido.black/&quot;
+            &quot;text&quot;: &quot;https://aegeanmists.drider.org/&quot;
         },
         &quot;$:/info/url/host&quot;: {
             &quot;title&quot;: &quot;$:/info/url/host&quot;,
-            &quot;text&quot;: &quot;aegeanmists.bushido.black&quot;
+            &quot;text&quot;: &quot;aegeanmists.drider.org&quot;
         },
         &quot;$:/info/url/hostname&quot;: {
             &quot;title&quot;: &quot;$:/info/url/hostname&quot;,
-            &quot;text&quot;: &quot;aegeanmists.bushido.black&quot;
+            &quot;text&quot;: &quot;aegeanmists.drider.org&quot;
         },
         &quot;$:/info/url/protocol&quot;: {
             &quot;title&quot;: &quot;$:/info/url/protocol&quot;,
@@ -10964,7 +11001,7 @@ tc-page-container tc-page-view-$(themeTitle)$ tc-language-$(languageTitle)$
         },
         &quot;$:/info/url/origin&quot;: {
             &quot;title&quot;: &quot;$:/info/url/origin&quot;,
-            &quot;text&quot;: &quot;https://aegeanmists.bushido.black&quot;
+            &quot;text&quot;: &quot;https://aegeanmists.drider.org&quot;
         },
         &quot;$:/info/browser/screen/width&quot;: {
             &quot;title&quot;: &quot;$:/info/browser/screen/width&quot;,
@@ -12011,15 +12048,15 @@ Five to seven men dressed in grey leaning on staves. They do not look like any o
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Places&quot;&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div aliases="[[Plague of the Flayed One]]" caption="Plague of the Flayed One" created="20200328132858361" creator="The Islander" modified="20200328135106714" modifier="The Islander" tags="Quests" title="Plague-of-the-Flayed-One" toc-sort="caption-sort">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Plague of the Flayed One&quot;&gt;&gt;</pre>
+<div aliases="[[plague of the flayed one]]" caption="Plague of the Flayed One" created="20200328132858361" creator="The Islander" modified="20211025014410713" modifier="The Islander" tags="Quests" title="Plague-of-the-Flayed-One" toc-sort="caption-sort">
+<pre>&lt;&lt;imgwattribution&gt;&gt;</pre>
 </div>
 <div caption="Player activities" created="20200328144903217" creator="The Islander" modified="20200328215127253" modifier="The Islander" tags="[[Table of contents]]" title="Player-activities">
 <pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Player activities&quot;&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
-<div caption="Player characters" created="20200328153707533" creator="The Islander" modified="20200328213631683" modifier="The Islander" tags="[[Table of contents]]" title="Player-characters">
-<pre>&lt;&lt;imgwattributionurl &quot;$:/.isle/images/Player characters&quot;&gt;&gt;
+<div caption="Player characters" created="20200328153707533" creator="The Islander" modified="20211025014443106" modifier="The Islander" tags="[[Table of contents]]" title="Player-characters">
+<pre>&lt;&lt;imgwattribution&gt;&gt;
 &lt;&lt;tocwsynopsis&gt;&gt;</pre>
 </div>
 <div aliases="[[Postscript 27-Nov-2019]]" caption="Nov 27th, 2019" caption-sort="2019-11-27" created="20191220013025856" creator="The Islander" modified="20200328130013830" modifier="The Islander" subtitle="Postscript for 27th November 2019 Session (Quest Items)" tags="Postscripts New-items-obtained" title="Postscript-for-27th-November-2019-Session">
